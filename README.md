@@ -1,6 +1,5 @@
-  
-                  GESTIONALE - VENDITA BIGLIETTI AEREI
-# Si vuole realizzare un’applicazione per la vendita di biglietti aerei.
+ #                  GESTIONALE - VENDITA BIGLIETTI AEREI
+Si vuole realizzare un’applicazione per la vendita di biglietti aerei.
 Ogni compagnia aerea (caratterizzata dal proprio nome) è costituita da diversi aerei, ognuno con un
 codice identificativo e una capienza in termini di numero di posti disponibili per i passeggeri. Inoltre,
 ogni aereo ha una capienza massima in termini di bagagli a bordo e bagagli in stiva.
