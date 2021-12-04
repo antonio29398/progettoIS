@@ -14,6 +14,7 @@ public class Volo {
 	private int BagagliBordoDispo = 50;
 	private int BagagliStivaDispo = 100;
 
+	
 	 public Volo (int Idvolo,int Idaereo,int Giorno,int OraArrivo,int OraPartenza,double Prezzo,int BagagliBordoDispo,int BagagliStivaDispo, int Posti) {
 		 this.Idvolo =Idvolo;
 		 this.Idaereo =Idaereo;

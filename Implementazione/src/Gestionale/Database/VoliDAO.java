@@ -3,8 +3,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import Gestionale.entity.*;
+
 
 
 
@@ -48,7 +50,7 @@ public class VoliDAO {
 		Volo volo = null;
 		Connection conn = DBManager.getConnection();
 	
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM ELABORATOINSERITO WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?;";
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?;";
 	
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 			
@@ -77,12 +79,45 @@ public class VoliDAO {
 		}
 		return volo;
 	}
+ 
+	
+	
+	
+	
 
 	
-	
-	
-	
-	
+	public static ArrayList<Volo> readAll() throws SQLException {
+		
+		ArrayList<Volo> listaVoli = new ArrayList<Volo>();
+		
+		Connection conn = DBManager.getConnection();
+		
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI; ";
+		
+		try(PreparedStatement stmt = conn.prepareStatement(query)) {
+						
+			try(ResultSet result = stmt.executeQuery()) {
+				
+				while(result.next()) {
+					
+					int id =result.getInt(1);
+					int OraArrivo = result.getInt(2);
+					int OraParte =result.getInt(3);
+					int Prezzo = result.getInt(4);
+					int Giorni =result.getInt(5);
+					int Posti = result.getInt(6);
+					
+					Volo volo = new Volo(id,0,Giorni,OraArrivo,OraParte,Prezzo,0,0,Posti);
+										
+					
+					
+					listaVoli.add(volo);
+				}
+		
+			}
+		}
+		return listaVoli;
+	}
 	
 	
 	
