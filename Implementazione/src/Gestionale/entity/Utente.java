@@ -1,5 +1,5 @@
 package Gestionale.entity;
 
-public class Utenti {
+public class Utente {
 
 }

@@ -1,6 +1,6 @@
 package Gestionale.entity;
 
-public class Biglietti {
+public class Biglietto {
 
 	private int Id;
 	private int Ora;
@@ -8,7 +8,7 @@ public class Biglietti {
 	
 	
 	
-	public Biglietti(int Id,int Ora, int Giorno) {
+	public Biglietto(int Id,int Ora, int Giorno) {
 		this.Id = Id;
 		this.Ora= Ora;
 		this.Giorno = Giorno;

@@ -1,13 +1,13 @@
 package Gestionale.entity;
 
-public class Aerei extends Compagnia {
+public class Aereo extends Compagnia {
 	
 	private int IdA;
 	private int Nposti;
 	
 	
 	
-	public Aerei(String nome, int id, int idA, int Posti) {
+	public Aereo(String nome, int id, int idA, int Posti) {
 		super(nome, id);
 		this.IdA = idA;
 		this.Nposti = Posti;
