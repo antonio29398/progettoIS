@@ -12,16 +12,18 @@ import Gestionale.Database.*;
 
 public class Main {
 	
-	static ControlUtente controlUtente = null;
+	
 
 	public static void main(String[] args) {
-
+		
+		ControlUtente controlUtente = null;
+		
 		Volo volo = null;
 		Volo volo1 = null;
 		Volo volo2 = null;
 		
 		try {
-			
+			controlUtente =new ControlUtente();
 			int Idvolo = 1;
 			int Idaereo = 1;
 			int Giorno = 12122012 ;

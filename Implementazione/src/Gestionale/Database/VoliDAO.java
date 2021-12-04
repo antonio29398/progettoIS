@@ -22,7 +22,7 @@ public class VoliDAO {
 		
 		Connection conn = DBManager.getConnection();
 		
-		String query = "INSERT INTO VOLO VALUES(?,?,?,?,?,?,?,?,?);";
+		String query = "INSERT INTO VOLI VALUES(?,?,?,?,?,?,?,?,?);";
 		
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 			
@@ -31,7 +31,7 @@ public class VoliDAO {
 			stmt.setInt(3, volo.GetOrA());
 			stmt.setInt(4, volo.GetOrP());
 			stmt.setInt(5, volo.GetGiorno());
-			stmt.setDouble(6, volo.GetPrezzo());
+			stmt.setInt(6, volo.GetPrezzo());
 			stmt.setInt(7, volo.GetBordo());
 			stmt.setInt(8, volo.GetStiva());
 			stmt.setInt(9, volo.GetPosti());
@@ -51,7 +51,7 @@ public class VoliDAO {
 		Volo volo = null;
 		Connection conn = DBManager.getConnection();
 	
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDVOLO=?;";
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,COSTO,GIORNO,POSTI FROM VOLI WHERE IDVOLO=?;";
 	
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 			
@@ -92,13 +92,13 @@ public class VoliDAO {
 		
 		Connection conn = DBManager.getConnection();
 		
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?; ";
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,COSTO,GIORNO,POSTI FROM VOLI WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?; ";
 		
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 						
 			stmt.setInt(1, Idtratta);
-			stmt.setInt(1, OraPartenza);
-			stmt.setInt(1, Giorno);
+			stmt.setInt(2, OraPartenza);
+			stmt.setInt(3, Giorno);
 			
 			try(ResultSet result = stmt.executeQuery()) {
 				
@@ -126,6 +126,40 @@ public class VoliDAO {
 		
 		
 		
+	public static ArrayList<Volo>  readall() throws SQLException {
+		
+		ArrayList<Volo> listaVoli = new ArrayList<Volo>();
+		
+		Connection conn = DBManager.getConnection();
+		
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,GIORNO,POSTI,COSTO FROM VOLI;";
+		
+		try(PreparedStatement stmt = conn.prepareStatement(query)) {
+					
+			try(ResultSet result = stmt.executeQuery()) {
+				
+				while(result.next()) {
+					
+					int id =result.getInt(1);
+					int OraArrivo = result.getInt(2);
+					int OraParte =result.getInt(3);
+					int Giorni =result.getInt(4);
+					int Posti = result.getInt(5);
+					int Prezzo = result.getInt(6);
+					
+					
+					Volo volo = new Volo(id,0,Giorni,OraArrivo,OraParte,Prezzo,0,0,Posti);
+										
+					
+					
+					listaVoli.add(volo);
+				}
+		
+			}
+		}
+		return listaVoli;
+		
+	}		
 		
 	
 			

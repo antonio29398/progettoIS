@@ -17,12 +17,14 @@ public class InizializzaDB {
 					
 					query = "CREATE TABLE VOLI("
 							+" IDVOLO INT NOT NULL ,"
+							+" IDAEROPORTO INT  ,"
 							+" ORARIOARRIVO INT,"
 							+" ORARIOPARTENZA INT,"
 							+" GIORNO INT,"
-							+" PREZZO DOUBLE,"
-							+" PREZZO DOUBLE,"
-							+" PREZZO DOUBLE,"
+							+" BAGAGLIBORDO INT,"
+							+" BAGAGLISTIVA INT,"
+							+" COSTO INT,"
+							+" POSTI INT"
 							+");";
 					
 					try(PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -62,4 +64,4 @@ public class InizializzaDB {
 		}
 
 
-}
+

@@ -9,13 +9,13 @@ public class Volo {
 	private int Giorno;
 	private int OraArrivo;
 	private int OraPartenza;
-	private double Prezzo;
+	private int Prezzo;
 	private int Nposti;
 	private int BagagliBordoDispo = 50;
 	private int BagagliStivaDispo = 100;
 
 	
-	 public Volo (int Idvolo,int Idaereo,int Giorno,int OraArrivo,int OraPartenza,double Prezzo,int BagagliBordoDispo,int BagagliStivaDispo, int Posti) {
+	 public Volo (int Idvolo,int Idaereo,int Giorno,int OraArrivo,int OraPartenza,int Prezzo,int BagagliBordoDispo,int BagagliStivaDispo, int Posti) {
 		 this.Idvolo =Idvolo;
 		 this.Idaereo =Idaereo;
 		 this.Giorno =Giorno;
@@ -55,7 +55,7 @@ public class Volo {
 		 return this.Nposti;
 	 }
 	 
-	 public double GetPrezzo (){
+	 public int GetPrezzo (){
 		 return this.Prezzo;
 		 
 	 }
@@ -101,7 +101,7 @@ public class Volo {
 		 
 	 }
 	 
-	 public void SetIPrezzo (double Prezzo){
+	 public void SetIPrezzo (int Prezzo){
 		  this.Prezzo = Prezzo;
 		 
 	 }
@@ -109,7 +109,7 @@ public class Volo {
 		public String toString(){
 			StringBuffer buf = new StringBuffer();
 			
-			buf.append("ID: "+Idvolo+" ORA DI ARRIVO: "+OraArrivo+" ORA DI PARTENZA: "+OraPartenza+" PREZZO: "+Prezzo+" GIORNO: "+Giorno+" POSTI: "+Nposti+" \n");
+			buf.append("ID: "+Idvolo+" ORA DI ARRIVO: "+OraArrivo+" ORA DI PARTENZA: "+OraPartenza+" COSTO: "+Prezzo+" GIORNO: "+Giorno+" POSTI: "+Nposti+" \n");
 			return buf.toString();
 		}
 
