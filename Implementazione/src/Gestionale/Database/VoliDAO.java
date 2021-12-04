@@ -51,7 +51,7 @@ public class VoliDAO {
 		Volo volo = null;
 		Connection conn = DBManager.getConnection();
 	
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,COSTO,GIORNO,POSTI FROM VOLI WHERE IDVOLO=?;";
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDVOLO=?;";
 	
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 			
@@ -92,7 +92,7 @@ public class VoliDAO {
 		
 		Connection conn = DBManager.getConnection();
 		
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,COSTO,GIORNO,POSTI FROM VOLI WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?; ";
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?; ";
 		
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 						
@@ -132,7 +132,7 @@ public class VoliDAO {
 		
 		Connection conn = DBManager.getConnection();
 		
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,GIORNO,POSTI,COSTO FROM VOLI;";
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,GIORNO,PREZZO,POSTI FROM VOLI;";
 		
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 					
@@ -144,8 +144,9 @@ public class VoliDAO {
 					int OraArrivo = result.getInt(2);
 					int OraParte =result.getInt(3);
 					int Giorni =result.getInt(4);
-					int Posti = result.getInt(5);
-					int Prezzo = result.getInt(6);
+					int Prezzo = result.getInt(5);
+					int Posti = result.getInt(6);
+					
 					
 					
 					Volo volo = new Volo(id,0,Giorni,OraArrivo,OraParte,Prezzo,0,0,Posti);

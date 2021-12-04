@@ -23,7 +23,7 @@ public class InizializzaDB {
 							+" GIORNO INT,"
 							+" BAGAGLIBORDO INT,"
 							+" BAGAGLISTIVA INT,"
-							+" COSTO INT,"
+							+" PREZZO INT,"
 							+" POSTI INT"
 							+");";
 					
@@ -33,15 +33,11 @@ public class InizializzaDB {
 					}
 					
 					
-//					query = "CREATE TABLE ELABORATOASSEGNATO("
-//							+" NOMEELABORATO VARCHAR(30) NOT NULL ,"
-//							+" INSEGNAMENTO VARCHAR(40),"
-//							+" NOMEDOCENTE VARCHAR(30),"
-//							+" COGNOMEDOCENTE VARCHAR(30),"
-//							+" MATRICOLA VARCHAR(30),"
-//							+" CFU INT"
-//							+");";
-//							
+					query = "CREATE TABLE COMPAGNIAAEREA("
+							+" ID INT NOT NULL ,"
+							+" NOME VARCHAR(15)"
+							+");";
+							
 					
 					
 					try(PreparedStatement stmt = conn.prepareStatement(query)) {
