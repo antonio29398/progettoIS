@@ -22,6 +22,6 @@ sovrapprezzo nel caso di bagagli aggiuntivi (pari a 10 € per quelli a bordo e 
 posto a sedere viene assegnato in maniera casuale dal sistema.
 Per ciascun biglietto acquistato, il sistema deve registrare i dati del passeggero (nome, cognome, codice
 fiscale e numero del documento), data e ora di emissione del biglietto ed il prezzo pagato, aggiornando
-il numero di posti e di bagagli disponibilissimi.
+il numero di posti e di bagagli disponibili.
 Ogni ultimo giorno del mese il sistema genera un report indicando il numero totale di biglietti venduti
 per ogni tratta.
