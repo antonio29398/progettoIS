@@ -10,16 +10,18 @@ public class Voli {
 	private int OraArrivo;
 	private int OraPartenza;
 	private double Prezzo;
+	private int Nposti;
 	private int BagagliBordoDispo = 50;
 	private int BagagliStivaDispo = 100;
 
-	 public Voli (int Idvolo,int Idaereo,int Giorno,int OraArrivo,int OraPartenza,double Prezzo,int BagagliBordoDispo,int BagagliStivaDispo) {
+	 public Voli (int Idvolo,int Idaereo,int Giorno,int OraArrivo,int OraPartenza,double Prezzo,int BagagliBordoDispo,int BagagliStivaDispo, int Posti) {
 		 this.Idvolo =Idvolo;
 		 this.Idaereo =Idaereo;
 		 this.Giorno =Giorno;
 		 this.OraArrivo =OraArrivo;
 		 this.OraPartenza =OraPartenza;
 		 this.Prezzo =Prezzo;
+		 this.Nposti=Posti;
 		 this.BagagliBordoDispo =BagagliBordoDispo;
 		 this.BagagliStivaDispo =BagagliStivaDispo; 	 
 	 }
@@ -46,6 +48,10 @@ public class Voli {
 	 public int GetGiorno (){
 		 return this.Giorno;
 		 
+	 }
+	 
+	 public int GetPosti() {
+		 return this.Nposti;
 	 }
 	 
 	 public double GetPrezzo (){
@@ -76,6 +82,11 @@ public class Voli {
 	 }
 	 public void SetOrP (int Orap){
 		  this.OraPartenza =Orap;
+		 
+	 }
+	 
+	 public void SetPosti (int Posti){
+		  this.Nposti =Posti;
 		 
 	 }
 	 
