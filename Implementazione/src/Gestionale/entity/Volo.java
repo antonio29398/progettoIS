@@ -106,7 +106,12 @@ public class Volo {
 		 
 	 }
 	 
-	 
+		public String toString(){
+			StringBuffer buf = new StringBuffer();
+			
+			buf.append("ID: "+Idvolo+" ORA DI ARRIVO: "+OraArrivo+" ORA DI PARTENZA: "+OraPartenza+" PREZZO: "+Prezzo+" GIORNO: "+Giorno+" POSTI: "+Nposti+" \n");
+			return buf.toString();
+		}
 
 	 
 	 

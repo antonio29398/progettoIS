@@ -6,9 +6,13 @@ import java.sql.SQLException;
 
 
 import Gestionale.entity.*;
+import Gestionale.Controller.*;
+import Gestionale.Database.*;
 
 
 public class Main {
+	
+	static ControlUtente controlUtente = null;
 
 	public static void main(String[] args) {
 
@@ -65,35 +69,10 @@ public class Main {
 			
 		
 		
-			gestioneelaborati.aggiuntaElaboratoDocente(elaborato1);
-			gestioneelaborati.aggiuntaElaboratoDocente(elaborato2);
-			gestioneelaborati.aggiuntaElaboratoDocente(elaborato3);
-			gestioneelaborati.aggiuntaElaboratoDocente(elaborato4);
-		
-			ElaboratoInserito[] preferenzeMie = new ElaboratoInserito[3];
-			preferenzeMie[0] = elaborato2;
-			preferenzeMie[1] = elaborato3;
-			preferenzeMie[2] = elaborato4;
-			
-			Domanda domandaMia = new Domanda(preferenzeMie);
-			
-			
-			
-			Studente studenteIo = new Studente(120,"N46003747",domandaMia,null);
-			
-			if(gestioneelaborati.richiestaAssegnazioneElaborato(studenteIo, gestioneelaborati.lista_elaborati)){
-				System.out.println("Assegnazione andata a buon fine");
-			}
-			else {
-				System.out.println("Richiesta respinta");
-			}
-			
-			
-			System.out.println(studenteIo.getElaboratoStudente().getNomeElaborato());
-			
-		
-			
-			
+			controlUtente.AggiungiVolo(volo);
+			controlUtente.AggiungiVolo(volo1);
+			controlUtente.AggiungiVolo(volo2);
+						
 			
 
 		} catch (SQLException e) {

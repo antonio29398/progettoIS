@@ -14,6 +14,7 @@ import Gestionale.entity.*;
 
 
 
+
 public class VoliDAO {
 
 
@@ -44,19 +45,18 @@ public class VoliDAO {
 	
 	
 	
-	public static Volo GetVolo(int Idtratta, int Giorno, int OraPartenza) throws SQLException {
+	public static  Volo GetVolo(int Idvolo) throws SQLException {
 	
 		
 		Volo volo = null;
 		Connection conn = DBManager.getConnection();
 	
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?;";
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDVOLO=?;";
 	
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 			
-			stmt.setInt(1, Idtratta);
-			stmt.setInt(1, OraPartenza);
-			stmt.setInt(1, Giorno);
+			stmt.setInt(1, Idvolo);
+			
 			
 			try(ResultSet result = stmt.executeQuery()) {
 				
@@ -86,16 +86,20 @@ public class VoliDAO {
 	
 
 	
-	public static ArrayList<Volo> readAll() throws SQLException {
+	public static ArrayList<Volo>  GetVoli(int Idtratta, int Giorno, int OraPartenza) throws SQLException {
 		
 		ArrayList<Volo> listaVoli = new ArrayList<Volo>();
 		
 		Connection conn = DBManager.getConnection();
 		
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI; ";
+		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?; ";
 		
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 						
+			stmt.setInt(1, Idtratta);
+			stmt.setInt(1, OraPartenza);
+			stmt.setInt(1, Giorno);
+			
 			try(ResultSet result = stmt.executeQuery()) {
 				
 				while(result.next()) {
@@ -117,21 +121,32 @@ public class VoliDAO {
 			}
 		}
 		return listaVoli;
-	}
+		
+	}		
+		
+		
+		
+		
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+			
+			
+			
 	
 	
 	
 	
 	
 }
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
