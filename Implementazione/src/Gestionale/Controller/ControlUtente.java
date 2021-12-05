@@ -20,7 +20,7 @@ public ControlUtente() throws SQLException {
 
 	public boolean  visualizzaVoli(int Idtratta,int Giorno, int OraPartenza) {
 		
-		if(Idtratta<=6 && Giorno ==8 && OraPartenza ==4) {
+		if(Idtratta<=999999 && Giorno <=99999999 && OraPartenza <=2400) {
 		try {
 			lista_voli = VoliDAO.GetVoli(Idtratta, Giorno, OraPartenza);
 			

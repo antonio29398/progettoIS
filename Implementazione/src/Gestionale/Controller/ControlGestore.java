@@ -21,7 +21,7 @@ public class ControlGestore {
 	// AGGIUNGERE COMPAGNIA
 		public boolean aggiungiCompagnia(Compagnia c){
 			
-			if(c.Nome.length()<=15 && c.GetId() <=9) {
+			if(c.Nome.length()<=15 && c.GetId() <=99999) {
 			 if(c != null) {
 					
 				try {

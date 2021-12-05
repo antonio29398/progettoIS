@@ -32,9 +32,9 @@ public class VoliDAO {
 			stmt.setInt(4, volo.GetOrA());
 			stmt.setInt(5, volo.GetOrP());
 			stmt.setInt(6, volo.GetGiorno());
-			stmt.setInt(7, volo.GetPrezzo());
-			stmt.setInt(8, volo.GetBordo());
-			stmt.setInt(9, volo.GetStiva());
+			stmt.setInt(7, volo.GetBordo());
+			stmt.setInt(8, volo.GetStiva());
+			stmt.setInt(9, volo.GetPrezzo());
 			stmt.setInt(10, volo.GetPosti());
 			
 			
@@ -107,7 +107,7 @@ public class VoliDAO {
 				while(result.next()) {
 					
 					int idV = result.getInt(1);
-					int idAeroporto = result.getInt(2);
+					int idAereo = result.getInt(2);
 					int idTratta =result.getInt(3);
 					int OraArrivo = result.getInt(4);
 					int Orapartenza = result.getInt(5);
@@ -117,7 +117,7 @@ public class VoliDAO {
 					int Prezzo = result.getInt(9);
 					int Posti = result.getInt(10);
 					
-					Volo volo = new Volo(idV,idAeroporto,idTratta,OraArrivo,Orapartenza,Giorni,Bordo,Stiva,Prezzo,Posti);
+					Volo volo = new Volo(idV,idTratta,idAereo,Giorni,OraArrivo,Orapartenza,Prezzo,Bordo,Stiva,Posti);
 										
 					
 					

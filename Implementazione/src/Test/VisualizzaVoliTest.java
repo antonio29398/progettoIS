@@ -94,7 +94,7 @@ class VisualizzaVoliTest {
 			ControlUtente c = new ControlUtente();
 			Volo volo = new Volo(0,01,0,12122012,0,2930,0,0,0,0);
 			c.AggiungiVolo(volo);
-			assertTrue(c.visualizzaVoli(01, 12122012, 2930));
+			assertTrue(c.visualizzaVoli(01, 12122012, 2370));
 			System.out.println(" TEST 2\n");
 			
 		} catch (SQLException e) {

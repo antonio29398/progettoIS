@@ -67,7 +67,7 @@ class AggiungiCompagniaTest {
 	public void test03(){
 		try {
 			ControlGestore g = new ControlGestore();
-			Compagnia compagnia = new Compagnia("pippozzobestialeeeeeeeeeeeeeeee",1);
+			Compagnia compagnia = new Compagnia("pippozzoooooooooooooo",1);
 		
 			assertTrue(	g.aggiungiCompagnia(compagnia));
 			System.out.println(" TEST 3\n");

@@ -17,7 +17,7 @@ public class InizializzaDB {
 					
 					query = "CREATE TABLE VOLI("
 							+" IDVOLO INT NOT NULL ,"
-							+" IDAEROPORTO INT  ,"
+							+" IDAEREO INT  ,"
 							+" IDTRATTA INT  ,"
 							+" ORARIOARRIVO INT,"
 							+" ORARIOPARTENZA INT,"
