@@ -26,6 +26,14 @@ public class Compagnia {
 	}
 	
 	
+	public String toString(){
+		StringBuffer buf = new StringBuffer();
+		
+		buf.append("ID: "+Id+" NOME: "+Nome+ "\n");
+		return buf.toString();
+	}
+
+	
 	
 	
 	

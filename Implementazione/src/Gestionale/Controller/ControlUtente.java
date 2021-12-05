@@ -15,7 +15,7 @@ public class ControlUtente {
 public ControlUtente() throws SQLException {
 		
 		 lista_voli= VoliDAO.readall();
-;
+
 	}
 
 	public void visualizzaVoli(int Idtratta,int Giorno, int OraPartenza) {

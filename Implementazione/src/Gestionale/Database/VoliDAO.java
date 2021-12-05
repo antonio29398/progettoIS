@@ -22,19 +22,20 @@ public class VoliDAO {
 		
 		Connection conn = DBManager.getConnection();
 		
-		String query = "INSERT INTO VOLI VALUES(?,?,?,?,?,?,?,?,?);";
+		String query = "INSERT INTO VOLI VALUES(?,?,?,?,?,?,?,?,?,?);";
 		
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 			
 			stmt.setInt(1, volo.GetIdV());
 			stmt.setInt(2, volo.GetIdA());
-			stmt.setInt(3, volo.GetOrA());
-			stmt.setInt(4, volo.GetOrP());
-			stmt.setInt(5, volo.GetGiorno());
-			stmt.setInt(6, volo.GetPrezzo());
-			stmt.setInt(7, volo.GetBordo());
-			stmt.setInt(8, volo.GetStiva());
-			stmt.setInt(9, volo.GetPosti());
+			stmt.setInt(3, volo.GetIdtratta());
+			stmt.setInt(4, volo.GetOrA());
+			stmt.setInt(5, volo.GetOrP());
+			stmt.setInt(6, volo.GetGiorno());
+			stmt.setInt(7, volo.GetPrezzo());
+			stmt.setInt(8, volo.GetBordo());
+			stmt.setInt(9, volo.GetStiva());
+			stmt.setInt(10, volo.GetPosti());
 			
 			
 			stmt.executeUpdate();
@@ -69,7 +70,7 @@ public class VoliDAO {
 				int Giorni =result.getInt(5);
 				int Posti = result.getInt(6);
 				
-				volo = new Volo(id,0,Giorni,OraArrivo,OraParte,Prezzo,0,0,Posti);
+				volo = new Volo(id,0,0,Giorni,OraArrivo,OraParte,Prezzo,0,0,Posti);
 				
 				}
 			}
@@ -92,26 +93,31 @@ public class VoliDAO {
 		
 		Connection conn = DBManager.getConnection();
 		
-		String query = "SELECT IDVOLO,ORARIOARRIVO,ORARIOPARTENZA,PREZZO,GIORNO,POSTI FROM VOLI WHERE IDTRATTA=?,GIORNO=?,ORARIOPARTENZA=?; ";
+		String query = "SELECT * FROM VOLI WHERE IDTRATTA=? AND GIORNO=? AND ORARIOPARTENZA=?";
 		
 		try(PreparedStatement stmt = conn.prepareStatement(query)) {
 						
 			stmt.setInt(1, Idtratta);
-			stmt.setInt(2, OraPartenza);
-			stmt.setInt(3, Giorno);
+			stmt.setInt(2, Giorno);
+			stmt.setInt(3, OraPartenza);
+			
 			
 			try(ResultSet result = stmt.executeQuery()) {
 				
 				while(result.next()) {
 					
-					int id =result.getInt(1);
-					int OraArrivo = result.getInt(2);
-					int OraParte =result.getInt(3);
-					int Prezzo = result.getInt(4);
-					int Giorni =result.getInt(5);
-					int Posti = result.getInt(6);
+					int idV = result.getInt(1);
+					int idAeroporto = result.getInt(2);
+					int idTratta =result.getInt(3);
+					int OraArrivo = result.getInt(4);
+					int Orapartenza = result.getInt(5);
+					int Giorni =result.getInt(6);
+					int Bordo = result.getInt(7);
+					int Stiva = result.getInt(8);				
+					int Prezzo = result.getInt(9);
+					int Posti = result.getInt(10);
 					
-					Volo volo = new Volo(id,0,Giorni,OraArrivo,OraParte,Prezzo,0,0,Posti);
+					Volo volo = new Volo(idV,idAeroporto,idTratta,OraArrivo,Orapartenza,Giorni,Bordo,Stiva,Prezzo,Posti);
 										
 					
 					
@@ -149,7 +155,7 @@ public class VoliDAO {
 					
 					
 					
-					Volo volo = new Volo(id,0,Giorni,OraArrivo,OraParte,Prezzo,0,0,Posti);
+					Volo volo = new Volo(id,0,0,Giorni,OraArrivo,OraParte,Prezzo,0,0,Posti);
 										
 					
 					

@@ -6,6 +6,7 @@ public class Volo {
 	
 	private int Idvolo;
 	private int Idaereo;
+	private int IdTratta;
 	private int Giorno;
 	private int OraArrivo;
 	private int OraPartenza;
@@ -15,9 +16,10 @@ public class Volo {
 	private int BagagliStivaDispo = 100;
 
 	
-	 public Volo (int Idvolo,int Idaereo,int Giorno,int OraArrivo,int OraPartenza,int Prezzo,int BagagliBordoDispo,int BagagliStivaDispo, int Posti) {
+	 public Volo (int Idvolo,int idtratta,int Idaereo,int Giorno,int OraArrivo,int OraPartenza,int Prezzo,int BagagliBordoDispo,int BagagliStivaDispo, int Posti) {
 		 this.Idvolo =Idvolo;
 		 this.Idaereo =Idaereo;
+		 this.IdTratta=idtratta;
 		 this.Giorno =Giorno;
 		 this.OraArrivo =OraArrivo;
 		 this.OraPartenza =OraPartenza;
@@ -36,6 +38,12 @@ public class Volo {
 		 return this.Idaereo;
 		 
 	 }
+	 
+	 public int GetIdtratta (){
+		 return this.IdTratta;
+		 
+	 }
+	 
 	 public int GetOrP (){
 		 return this.OraPartenza;
 		 
@@ -74,6 +82,11 @@ public class Volo {
 	 
 	 public void SetIdV (int id){
 		 this.Idvolo = id;
+		 
+	 }
+	 
+	 public void SetIdT (int id){
+		 this.IdTratta = id;
 		 
 	 }
 	 
