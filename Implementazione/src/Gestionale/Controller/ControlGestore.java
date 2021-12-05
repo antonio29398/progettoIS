@@ -19,7 +19,9 @@ public class ControlGestore {
 	}
 	
 	// AGGIUNGERE COMPAGNIA
-		public void aggiungiCompagnia(Compagnia c){
+		public boolean aggiungiCompagnia(Compagnia c){
+			
+			if(c.Nome.length()<=15 && c.GetId() <=9) {
 			 if(c != null) {
 					
 				try {
@@ -29,7 +31,9 @@ public class ControlGestore {
 					e.printStackTrace();
 				}
 			 }
-
+			 return true;
+			}
+			return false;
 }
 		
 	

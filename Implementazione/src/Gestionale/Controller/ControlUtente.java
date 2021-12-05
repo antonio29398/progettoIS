@@ -18,7 +18,9 @@ public ControlUtente() throws SQLException {
 
 	}
 
-	public void visualizzaVoli(int Idtratta,int Giorno, int OraPartenza) {
+	public boolean  visualizzaVoli(int Idtratta,int Giorno, int OraPartenza) {
+		
+		if(Idtratta<=6 && Giorno ==8 && OraPartenza ==4) {
 		try {
 			lista_voli = VoliDAO.GetVoli(Idtratta, Giorno, OraPartenza);
 			
@@ -34,8 +36,9 @@ public ControlUtente() throws SQLException {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	
+		return true;
+		}
+		return false;
 	}
 
 	 public void AggiungiVolo(Volo volo) throws SQLException{
